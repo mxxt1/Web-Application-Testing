@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Display from './components/Display';
+import Dashboard from './components/Dashboard';
 import './App.css';
 
 
@@ -35,11 +36,12 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      strikes: 1,
-      balls: 1,
-      hits: 1,
-      fouls: 1
+      strikes: 0,
+      balls: 0,
+      hits: 0,
+      fouls: 0
     }
+    console.log(this.state);
   }//constructor
 
   //state setter functions: 
@@ -54,9 +56,6 @@ class App extends Component {
     }
   };
 
-  setStrikes = newCount => {
-    this.setState({strikes: newCount});
-  }
 
   //balls
  addBalls = () => {
@@ -73,14 +72,18 @@ class App extends Component {
   addHits = () => {
     this.setState({
       hits: this.state.hits+1,
-      strikes: this.state.strikes*0,
-      balls: this.state.balls*0
+      strikes: 0,
+      balls: 0
     })
     console.log(
       'Hits ', this.state.hits,
       'Balls', this.state.balls,
       'Strikes',this.state.strikes
       )
+  }
+
+  resetHits = () => {
+    this.setState({hits: 0});
   }
 
 
@@ -92,8 +95,8 @@ class App extends Component {
       this.setState({strikes: this.state.strikes + 1})
       console.log('fouls ', this.state.fouls, 'Strikes ',this.state.strikes);
     } else {
-      this.setState({balls: 0});
-      console.log('Balls ', this.state.balls);
+      this.setState({fouls: 0});
+      console.log('fouls ', this.state.fouls);
     }
   }
 
@@ -104,12 +107,15 @@ class App extends Component {
       <div className="App">
        
       <h1>At-Bat Tracker</h1>
-      <Display 
+      <Display {...this.state} />
+      <Dashboard 
       {...this.state} 
       addStrikes={this.addStrikes}
       setStrikes={this.setStrikes} 
       addBalls={this.addBalls}
       addHits={this.addHits}
+      addFouls={this.addFouls}
+      resetHits={this.resetHits}
       />
       </div>
     );

@@ -11,11 +11,24 @@ class Display extends Component {
     }
     render() {
         return (
-            <div>
-               <button onClick={this.props.addStrikes}>New Strike</button>
-               <button onClick={this.props.addBalls}>New Ball</button>
-               <button onClick={this.props.addHits}>New Hit</button> 
-            </div>
+            <section>
+                <div>
+                    <h3>Hits</h3>
+                    <h3>{this.props.hits}</h3>
+                </div>
+                <div>
+                    <h3>Strikes</h3>
+                    <h3>{this.props.strikes}</h3>
+                </div>
+                <div>
+                    <h3>Balls</h3>
+                    <h3>{this.props.balls}</h3>
+                </div>
+                <div>
+                    <h3>Fouls</h3>
+                    <h3>{this.props.fouls}</h3>
+                </div>
+            </section>
         )
     }
 }
