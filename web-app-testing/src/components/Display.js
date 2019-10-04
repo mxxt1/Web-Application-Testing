@@ -18,7 +18,7 @@ class Display extends Component {
                 </div>
                 <div>
                     <h3>Strikes</h3>
-                    <h3>{this.props.strikes}</h3>
+                    <h3 data-testid='count'>{this.props.strikes}</h3>
                 </div>
                 <div>
                     <h3>Balls</h3>

@@ -10,7 +10,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-               <button onClick={this.props.addStrikes}>New Strike</button>
+               <button data-testid='strike' onClick={this.props.addStrikes}>New Strike</button>
                <button onClick={this.props.addBalls}>New Ball</button>
                <button onClick={this.props.addHits}>New Hit</button>
                <button onClick={this.props.addFouls}>New Foul</button>
